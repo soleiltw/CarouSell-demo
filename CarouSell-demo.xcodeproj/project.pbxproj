@@ -16,6 +16,7 @@
 		D3C591D61CB605B5002D8FF5 /* RegistrationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C591D51CB605B5002D8FF5 /* RegistrationViewController.swift */; };
 		D3C591D91CB6070E002D8FF5 /* PageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C591D71CB6070E002D8FF5 /* PageCollectionViewCell.swift */; };
 		D3C591DA1CB6070E002D8FF5 /* PageCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3C591D81CB6070E002D8FF5 /* PageCollectionViewCell.xib */; };
+		D3C591DC1CB616CF002D8FF5 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C591DB1CB616CF002D8FF5 /* Constant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		D3C591D51CB605B5002D8FF5 /* RegistrationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationViewController.swift; sourceTree = "<group>"; };
 		D3C591D71CB6070E002D8FF5 /* PageCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageCollectionViewCell.swift; sourceTree = "<group>"; };
 		D3C591D81CB6070E002D8FF5 /* PageCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PageCollectionViewCell.xib; sourceTree = "<group>"; };
+		D3C591DB1CB616CF002D8FF5 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				D3C591D51CB605B5002D8FF5 /* RegistrationViewController.swift */,
 				D3C591D71CB6070E002D8FF5 /* PageCollectionViewCell.swift */,
 				D3C591D81CB6070E002D8FF5 /* PageCollectionViewCell.xib */,
+				D3C591DB1CB616CF002D8FF5 /* Constant.swift */,
 			);
 			path = "CarouSell-demo";
 			sourceTree = "<group>";
@@ -151,6 +154,7 @@
 			files = (
 				D3C591D61CB605B5002D8FF5 /* RegistrationViewController.swift in Sources */,
 				D3C591C41CB5FD25002D8FF5 /* ViewController.swift in Sources */,
+				D3C591DC1CB616CF002D8FF5 /* Constant.swift in Sources */,
 				D3C591C21CB5FD25002D8FF5 /* AppDelegate.swift in Sources */,
 				D3C591D91CB6070E002D8FF5 /* PageCollectionViewCell.swift in Sources */,
 			);
