@@ -16,6 +16,7 @@ class RegistrationViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var layout: UICollectionViewFlowLayout!
     @IBOutlet weak var pageControl: UIPageControl!
     
+    @IBOutlet weak var loginWithEmailButton: UIButton!
     let pages = [[Constants.image: "coffee", Constants.title: "drink a coffee", Constants.description: "i like coffee self.tutorialCollectionView.registerNib(UINib(nibName"], [Constants.image: "airplan", Constants.title: "take a flight", Constants.description: "i like to take a flight"], [Constants.image: "dessert", Constants.title: "see sunset in the dessert", Constants.description: "i like coffee"]]
     
     override func viewDidLoad() {
@@ -26,8 +27,18 @@ class RegistrationViewController: UIViewController, UIScrollViewDelegate {
         self.layout.itemSize = CGSize(width: UIScreen.mainScreen().bounds.width, height: 382)
         
         self.pageControl.numberOfPages = self.pages.count
+        
+        self.setUpLoginWithEmailButton()
     }
     
+    private func setUpLoginWithEmailButton() {
+        self.loginWithEmailButton.layer.cornerRadius = 5
+        
+        let buttonTitle = NSMutableAttributedString(string: "Sign up or Log in with ")
+        let boldEmail = NSAttributedString(string: "Email", attributes: [NSFontAttributeName: UIFont.boldSystemFontOfSize(18.0)])
+        buttonTitle.appendAttributedString(boldEmail)
+        self.loginWithEmailButton.setAttributedTitle(buttonTitle, forState: .Normal)
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

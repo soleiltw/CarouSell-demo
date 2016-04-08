@@ -45,23 +45,14 @@
                                 </connections>
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nkS-wQ-uTq" customClass="FBSDKLoginButton">
-                                <rect key="frame" x="66" y="435" width="469" height="30"/>
+                                <rect key="frame" x="150" y="435" width="300" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="iL2-Mr-jIU"/>
-                                    <constraint firstAttribute="width" constant="469" id="jm2-Ii-Tzb"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pal-AC-E1c">
                                 <rect key="frame" x="329" y="550" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KXK-rj-ocm">
-                                <rect key="frame" x="66" y="473" width="469" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="bkh-E9-oLH"/>
-                                    <constraint firstAttribute="width" constant="469" id="m4a-kS-9Fo"/>
-                                </constraints>
                                 <state key="normal" title="Button"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5N-rt-8k7">
@@ -83,6 +74,18 @@
                                     <action selector="pageChanged:" destination="2aT-8g-fUU" eventType="valueChanged" id="vu8-pd-l7q"/>
                                 </connections>
                             </pageControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KXK-rj-ocm">
+                                <rect key="frame" x="150" y="473" width="300" height="30"/>
+                                <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="300" id="9uG-rz-eyX"/>
+                                    <constraint firstAttribute="height" constant="30" id="bkh-E9-oLH"/>
+                                </constraints>
+                                <inset key="imageEdgeInsets" minX="-30" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="Sign up or Log in with Email" image="email">
+                                    <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -95,6 +98,7 @@
                             <constraint firstItem="pal-AC-E1c" firstAttribute="baseline" secondItem="Y5N-rt-8k7" secondAttribute="baseline" id="Wu0-yf-6Fu"/>
                             <constraint firstItem="9YD-go-hmr" firstAttribute="centerX" secondItem="IQt-jV-jDw" secondAttribute="centerX" id="YTJ-6s-Gd6"/>
                             <constraint firstItem="nkS-wQ-uTq" firstAttribute="centerX" secondItem="IQt-jV-jDw" secondAttribute="centerX" id="YhQ-kD-enG"/>
+                            <constraint firstItem="KXK-rj-ocm" firstAttribute="width" secondItem="nkS-wQ-uTq" secondAttribute="width" id="aIs-h9-W3O"/>
                             <constraint firstAttribute="trailing" secondItem="zt7-mi-Iiw" secondAttribute="trailing" id="ki9-uI-sMM"/>
                             <constraint firstItem="KXK-rj-ocm" firstAttribute="top" secondItem="nkS-wQ-uTq" secondAttribute="bottom" constant="8" id="mFp-dm-rsK"/>
                             <constraint firstItem="KXK-rj-ocm" firstAttribute="centerX" secondItem="IQt-jV-jDw" secondAttribute="centerX" id="nIL-cO-5QR"/>
@@ -109,6 +113,7 @@
                     </view>
                     <connections>
                         <outlet property="layout" destination="at6-le-LLq" id="Krj-Ai-hYN"/>
+                        <outlet property="loginWithEmailButton" destination="KXK-rj-ocm" id="TOw-9D-ROo"/>
                         <outlet property="pageControl" destination="9YD-go-hmr" id="HdW-ra-ik3"/>
                         <outlet property="tutorialCollectionView" destination="zt7-mi-Iiw" id="wyu-H9-GQX"/>
                     </connections>
@@ -118,4 +123,7 @@
             <point key="canvasLocation" x="558" y="374"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="email" width="16" height="16"/>
+    </resources>
 </document>
