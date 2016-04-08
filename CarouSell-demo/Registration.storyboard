@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Registration View Controller-->
         <scene sceneID="KA6-jA-Vih">
             <objects>
-                <viewController id="2aT-8g-fUU" sceneMemberID="viewController">
+                <viewController id="2aT-8g-fUU" customClass="RegistrationViewController" customModule="CarouSell_demo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TWS-VN-Voj"/>
                         <viewControllerLayoutGuide type="bottom" id="0zz-5L-egI"/>
@@ -17,12 +17,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zt7-mi-Iiw">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zt7-mi-Iiw">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="382"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="382" id="RJY-jI-oNO"/>
                                 </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="at6-le-LLq">
+                                <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="at6-le-LLq">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -39,14 +39,11 @@
                                         </view>
                                     </collectionViewCell>
                                 </cells>
+                                <connections>
+                                    <outlet property="dataSource" destination="2aT-8g-fUU" id="KAH-uO-5t4"/>
+                                    <outlet property="delegate" destination="2aT-8g-fUU" id="PiW-ES-3g3"/>
+                                </connections>
                             </collectionView>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="9YD-go-hmr">
-                                <rect key="frame" x="281" y="390" width="39" height="37"/>
-                                <color key="backgroundColor" red="0.34883721995567873" green="0.24788595203550934" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="37" id="rmh-b7-UMT"/>
-                                </constraints>
-                            </pageControl>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nkS-wQ-uTq">
                                 <rect key="frame" x="66" y="435" width="469" height="30"/>
                                 <constraints>
@@ -76,6 +73,16 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="9YD-go-hmr">
+                                <rect key="frame" x="281" y="390" width="39" height="37"/>
+                                <color key="backgroundColor" red="0.34883721995567873" green="0.24788595203550934" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="37" id="rmh-b7-UMT"/>
+                                </constraints>
+                                <connections>
+                                    <action selector="pageChanged:" destination="2aT-8g-fUU" eventType="valueChanged" id="vu8-pd-l7q"/>
+                                </connections>
+                            </pageControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -100,6 +107,11 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="layout" destination="at6-le-LLq" id="Krj-Ai-hYN"/>
+                        <outlet property="pageControl" destination="9YD-go-hmr" id="HdW-ra-ik3"/>
+                        <outlet property="tutorialCollectionView" destination="zt7-mi-Iiw" id="wyu-H9-GQX"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EDl-TL-uDV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
