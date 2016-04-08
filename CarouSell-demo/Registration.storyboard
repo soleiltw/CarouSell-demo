@@ -8,7 +8,7 @@
         <!--Registration View Controller-->
         <scene sceneID="KA6-jA-Vih">
             <objects>
-                <viewController id="2aT-8g-fUU" customClass="RegistrationViewController" customModule="CarouSell_demo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RegistrationViewController" id="2aT-8g-fUU" customClass="RegistrationViewController" customModule="CarouSell_demo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="TWS-VN-Voj"/>
                         <viewControllerLayoutGuide type="bottom" id="0zz-5L-egI"/>
@@ -44,7 +44,7 @@
                                     <outlet property="delegate" destination="2aT-8g-fUU" id="PiW-ES-3g3"/>
                                 </connections>
                             </collectionView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nkS-wQ-uTq">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nkS-wQ-uTq" customClass="FBSDKLoginButton">
                                 <rect key="frame" x="66" y="435" width="469" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="iL2-Mr-jIU"/>

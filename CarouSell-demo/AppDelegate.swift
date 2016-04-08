@@ -17,8 +17,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AppDelegate.fbTokenChangeNoti(_:)), name: FBSDKAccessTokenDidChangeNotification, object: nil)
         
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+    }
+    
+    func fbTokenChangeNoti(noti:NSNotification) {
+
+        if FBSDKAccessToken.currentAccessToken() != nil  {
+            self.toggleRootView("Main", viewControllerIdentifier:
+            "ViewController")
+        } else if FBSDKAccessToken.currentAccessToken() == nil {
+            self.toggleRootView("Registration", viewControllerIdentifier: "RegistrationViewController")
+        }
+    }
+    
+    func toggleRootView(storyboardName: String, viewControllerIdentifier: String) {
+        let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
+        
+        let rootController = storyboard.instantiateViewControllerWithIdentifier(viewControllerIdentifier)
+        if self.window != nil {
+            self.window!.rootViewController = rootController
+        }
     }
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
