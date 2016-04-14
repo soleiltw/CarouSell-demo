@@ -152,7 +152,11 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Title" id="Ccr-Fq-IGO">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ary-cH-Uup"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="otf-p1-VWI"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="otf-p1-VWI">
+                            <connections>
+                                <action selector="done:" destination="kHi-2r-yfx" id="flK-Ld-LZ8"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>

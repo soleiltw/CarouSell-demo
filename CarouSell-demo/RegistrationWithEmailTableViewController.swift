@@ -26,6 +26,14 @@ class RegistrationWithEmailTableViewController: UITableViewController, SignInInp
     @IBAction func cancel(sender: AnyObject) {
         self.dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    @IBAction func done(sender: AnyObject) {
+        let params = ["username": self.userName, "password": self.password, "email": self.email]
+        
+        // send params to server
+        sleep(2)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
