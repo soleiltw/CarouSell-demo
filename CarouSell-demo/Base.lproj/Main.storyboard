@@ -27,14 +27,33 @@
                                 <rect key="frame" x="277" y="339" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                             </button>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FTl-YX-SYg">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="vHF-H9-uRr"/>
+                                </connections>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="at6-YY-Xot" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9H4-ck-2DC"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="searchDisplayController" destination="iPb-91-7ZM" id="7br-47-Zzy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="iPb-91-7ZM">
+                    <connections>
+                        <outlet property="delegate" destination="BYZ-38-t0r" id="hWv-2R-E6H"/>
+                        <outlet property="searchBar" destination="FTl-YX-SYg" id="blj-8N-FtS"/>
+                        <outlet property="searchContentsController" destination="BYZ-38-t0r" id="XOf-YC-c1f"/>
+                        <outlet property="searchResultsDataSource" destination="BYZ-38-t0r" id="qQc-YE-N3b"/>
+                        <outlet property="searchResultsDelegate" destination="BYZ-38-t0r" id="GZr-z8-f3K"/>
+                    </connections>
+                </searchDisplayController>
             </objects>
         </scene>
     </scenes>
