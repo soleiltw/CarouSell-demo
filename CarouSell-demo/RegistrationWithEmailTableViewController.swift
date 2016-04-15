@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PKHUD
 
 enum RegistrationMode {
     case SignUp
@@ -28,11 +29,65 @@ class RegistrationWithEmailTableViewController: UITableViewController, SignInInp
     }
     
     @IBAction func done(sender: AnyObject) {
-        let params = ["username": self.userName, "password": self.password, "email": self.email]
+        self.view.endEditing(true)
+        guard let username = self.userName
+            else {
+                self.alert("you should input correct username!")
+                return
+        }
+        guard self.isValidatedEmail(self.email)
+            else {
+                self.alert("you should input correct email")
+                return
+        }
+        guard self.isValidatedPassword(self.password)
+            else {
+                self.alert("you should input a password whose length is greater than 6")
+
+                return
+        }
+        
+        let params = ["username": username, "password": self.password, "email": self.email]
         
         // send params to server
-        sleep(2)
+        HUD.show(.Progress)
+        fakeAPICall(params) {
+            HUD.hide()
+            let storybaord = UIStoryboard(name: "Main", bundle: nil)
+            let viewController = storybaord.instantiateViewControllerWithIdentifier("MainNavigationController")
+            self.presentViewController(viewController, animated: true, completion: nil)
+            NSUserDefaults.standardUserDefaults().setValue(self.email, forKey: "email")
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
     }
+    
+    private func fakeAPICall(params: [String: String?], closure:()->()) {
+        dispatch_after(
+            dispatch_time(
+                DISPATCH_TIME_NOW,
+                Int64(3 * (NSEC_PER_SEC))
+            ),
+            dispatch_get_main_queue(), closure)
+    }
+    
+    private func alert(title: String) {
+        let alertController = UIAlertController(title: title, message: nil, preferredStyle: .Alert)
+        alertController.addAction(UIAlertAction(title: "OK", style: .Cancel, handler: nil))
+        self.presentViewController(alertController, animated: true, completion: nil)
+    }
+    
+    private func isValidatedPassword(password: String?) -> Bool {
+        return password?.characters.count > 6
+    }
+    
+    private func isValidatedEmail(email: String?) -> Bool {
+        // regular expression
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}"
+        let range = email?.rangeOfString(emailRegEx, options:.RegularExpressionSearch)
+//        let result = range != nil ? true : false
+        return range != nil
+    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -87,9 +87,11 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-CarouSell-demo/Bolts.framework"
   install_framework "Pods-CarouSell-demo/FBSDKCoreKit.framework"
   install_framework "Pods-CarouSell-demo/FBSDKLoginKit.framework"
+  install_framework "Pods-CarouSell-demo/PKHUD.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-CarouSell-demo/Bolts.framework"
   install_framework "Pods-CarouSell-demo/FBSDKCoreKit.framework"
   install_framework "Pods-CarouSell-demo/FBSDKLoginKit.framework"
+  install_framework "Pods-CarouSell-demo/PKHUD.framework"
 fi

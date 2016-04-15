@@ -6,5 +6,6 @@ use_frameworks!
 target 'CarouSell-demo' do
 pod 'FBSDKCoreKit'
 pod 'FBSDKLoginKit'
+pod 'PKHUD'
 end
 
