@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15E65" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2aT-8g-fUU">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="2aT-8g-fUU">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -55,15 +55,6 @@
                                 <rect key="frame" x="329" y="550" width="46" height="30"/>
                                 <state key="normal" title="Button"/>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5N-rt-8k7">
-                                <rect key="frame" x="279" y="554" width="42" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="W6H-KW-Mha"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="9YD-go-hmr">
                                 <rect key="frame" x="281" y="390" width="39" height="37"/>
                                 <color key="backgroundColor" red="0.34883721995567873" green="0.24788595203550934" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -89,6 +80,15 @@
                                     <segue destination="eIU-YH-kfj" kind="presentation" id="fu7-Bs-s3J"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y5N-rt-8k7">
+                                <rect key="frame" x="279" y="554" width="42" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="W6H-KW-Mha"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -98,6 +98,7 @@
                             <constraint firstItem="Y5N-rt-8k7" firstAttribute="top" secondItem="KXK-rj-ocm" secondAttribute="bottom" constant="51" id="Cgn-oQ-ps7"/>
                             <constraint firstItem="zt7-mi-Iiw" firstAttribute="leading" secondItem="IQt-jV-jDw" secondAttribute="leading" id="EoC-sr-GZy"/>
                             <constraint firstItem="9YD-go-hmr" firstAttribute="top" secondItem="zt7-mi-Iiw" secondAttribute="bottom" constant="8" id="Gmv-tv-G2E"/>
+                            <constraint firstItem="0zz-5L-egI" firstAttribute="top" secondItem="Y5N-rt-8k7" secondAttribute="bottom" constant="25" id="H56-BM-cIs"/>
                             <constraint firstItem="pal-AC-E1c" firstAttribute="baseline" secondItem="Y5N-rt-8k7" secondAttribute="baseline" id="Wu0-yf-6Fu"/>
                             <constraint firstItem="9YD-go-hmr" firstAttribute="centerX" secondItem="IQt-jV-jDw" secondAttribute="centerX" id="YTJ-6s-Gd6"/>
                             <constraint firstItem="nkS-wQ-uTq" firstAttribute="centerX" secondItem="IQt-jV-jDw" secondAttribute="centerX" id="YhQ-kD-enG"/>
@@ -110,6 +111,7 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="Cgn-oQ-ps7"/>
                                 <exclude reference="5fB-QU-rxQ"/>
                             </mask>
                         </variation>
@@ -151,7 +153,11 @@
                     </tableView>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" title="Title" id="Ccr-Fq-IGO">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ary-cH-Uup"/>
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ary-cH-Uup">
+                            <connections>
+                                <action selector="cancel:" destination="kHi-2r-yfx" id="2gb-jC-mT8"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="otf-p1-VWI">
                             <connections>
                                 <action selector="done:" destination="kHi-2r-yfx" id="flK-Ld-LZ8"/>

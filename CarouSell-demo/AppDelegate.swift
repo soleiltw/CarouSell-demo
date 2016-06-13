@@ -34,7 +34,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         if FBSDKAccessToken.currentAccessToken() != nil  {
             self.toggleRootView("Main", viewControllerIdentifier:
-            "ViewController")
+            "MainNavigationController")
         } else if FBSDKAccessToken.currentAccessToken() == nil {
             self.toggleRootView("Registration", viewControllerIdentifier: "RegistrationViewController")
         }

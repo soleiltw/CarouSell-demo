@@ -17,7 +17,7 @@ class RegistrationViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var pageControl: UIPageControl!
     
     @IBOutlet weak var loginWithEmailButton: UIButton!
-    let pages = [[Constants.image: "coffee", Constants.title: "drink a coffee", Constants.description: "i like coffee self.tutorialCollectionView.registerNib(UINib(nibName"], [Constants.image: "airplan", Constants.title: "take a flight", Constants.description: "i like to take a flight"], [Constants.image: "dessert", Constants.title: "see sunset in the dessert", Constants.description: "i like coffee"]]
+    let pages = [[Constants.image: "coffee", Constants.title: "drink a coffee", Constants.description: "i like coffee "], [Constants.image: "airplan", Constants.title: "take a flight", Constants.description: "i like to take a flight"], [Constants.image: "dessert", Constants.title: "see sunset in the dessert", Constants.description: "i like seeing sunset in the dessert"]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
