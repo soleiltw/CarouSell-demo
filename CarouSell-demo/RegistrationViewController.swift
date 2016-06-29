@@ -17,11 +17,17 @@ class RegistrationViewController: UIViewController, UIScrollViewDelegate {
     @IBOutlet weak var pageControl: UIPageControl!
     
     @IBOutlet weak var loginWithEmailButton: UIButton!
-    let pages = [[Constants.image: "coffee", Constants.title: "drink a coffee", Constants.description: "i like coffee "], [Constants.image: "airplan", Constants.title: "take a flight", Constants.description: "i like to take a flight"], [Constants.image: "dessert", Constants.title: "see sunset in the dessert", Constants.description: "i like seeing sunset in the dessert"]]
+    let pages = [
+        [Constants.image: "coffee", Constants.title: "drink a coffee", Constants.description: "i like coffee "],
+        
+        [Constants.image: "airplan", Constants.title: "take a flight", Constants.description: "i like to take a flight"],
+        
+        [Constants.image: "dessert", Constants.title: "see sunset in the dessert", Constants.description: "i like seeing sunset in the dessert"]]
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Register nib for collection view cell
         self.tutorialCollectionView.registerNib(UINib(nibName: "PageCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: pageCellReuseIdentifier)
 
         self.layout.itemSize = CGSize(width: UIScreen.mainScreen().bounds.width, height: 382)

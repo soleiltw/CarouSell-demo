@@ -56,6 +56,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1C9B38BE1D211F5F0099200A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				D3C591C31CB5FD25002D8FF5 /* ViewController.swift */,
+				D3C591D51CB605B5002D8FF5 /* RegistrationViewController.swift */,
+				D36849231CBCDC0900BCB49C /* RegistrationWithEmailTableViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		1C9B38BF1D211F930099200A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D3C591D71CB6070E002D8FF5 /* PageCollectionViewCell.swift */,
+				D3C591D81CB6070E002D8FF5 /* PageCollectionViewCell.xib */,
+				D3EA51501CBDEA5400646000 /* SignInInputTableViewCell.swift */,
+				D3EA51511CBDEA5400646000 /* SignInInputTableViewCell.xib */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		CE8643C2687801BD40BCA313 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -86,20 +107,15 @@
 		D3C591C01CB5FD25002D8FF5 /* CarouSell-demo */ = {
 			isa = PBXGroup;
 			children = (
+				1C9B38BF1D211F930099200A /* Views */,
+				1C9B38BE1D211F5F0099200A /* ViewControllers */,
 				D3C591C11CB5FD25002D8FF5 /* AppDelegate.swift */,
-				D3C591C31CB5FD25002D8FF5 /* ViewController.swift */,
+				D3C591DB1CB616CF002D8FF5 /* Constant.swift */,
 				D3C591C51CB5FD25002D8FF5 /* Main.storyboard */,
+				D3C591D31CB5FDAE002D8FF5 /* Registration.storyboard */,
 				D3C591C81CB5FD25002D8FF5 /* Assets.xcassets */,
 				D3C591CA1CB5FD25002D8FF5 /* LaunchScreen.storyboard */,
 				D3C591CD1CB5FD25002D8FF5 /* Info.plist */,
-				D3C591D31CB5FDAE002D8FF5 /* Registration.storyboard */,
-				D3C591D51CB605B5002D8FF5 /* RegistrationViewController.swift */,
-				D3C591D71CB6070E002D8FF5 /* PageCollectionViewCell.swift */,
-				D3C591D81CB6070E002D8FF5 /* PageCollectionViewCell.xib */,
-				D3C591DB1CB616CF002D8FF5 /* Constant.swift */,
-				D36849231CBCDC0900BCB49C /* RegistrationWithEmailTableViewController.swift */,
-				D3EA51501CBDEA5400646000 /* SignInInputTableViewCell.swift */,
-				D3EA51511CBDEA5400646000 /* SignInInputTableViewCell.xib */,
 			);
 			path = "CarouSell-demo";
 			sourceTree = "<group>";

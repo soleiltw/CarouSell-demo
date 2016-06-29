@@ -14,28 +14,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // Setup Facebook token change notification.
         NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AppDelegate.fbTokenChangeNoti(_:)), name: FBSDKAccessTokenDidChangeNotification, object: nil)
 
+        // Setup navigation bar apperance.
         UINavigationBar.appearance().barTintColor = UIColor.redColor()
         UINavigationBar.appearance().tintColor = UIColor.whiteColor()
         UINavigationBar.appearance().titleTextAttributes = [NSForegroundColorAttributeName : UIColor.whiteColor()]
         
+        // If user has signup, then open main storyboard.
         if NSUserDefaults.standardUserDefaults().valueForKey("email") != nil {
             self.toggleRootView("Main", viewControllerIdentifier: "MainNavigationController")
         }
         
+        // Return this if intergrate with facebook
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
     
     func fbTokenChangeNoti(noti:NSNotification) {
-
+        // If we get access token, then open main storyboard.
         if FBSDKAccessToken.currentAccessToken() != nil  {
             self.toggleRootView("Main", viewControllerIdentifier:
             "MainNavigationController")
         } else if FBSDKAccessToken.currentAccessToken() == nil {
+            // If we couldn't get access token, then we use registration
             self.toggleRootView("Registration", viewControllerIdentifier: "RegistrationViewController")
         }
     }
@@ -43,8 +48,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func toggleRootView(storyboardName: String, viewControllerIdentifier: String) {
         let storyboard = UIStoryboard(name: storyboardName, bundle: nil)
         
+        // Retrive storyboard
         let rootController = storyboard.instantiateViewControllerWithIdentifier(viewControllerIdentifier)
         if self.window != nil {
+            // Setup root view controller
             self.window!.rootViewController = rootController
         }
     }
