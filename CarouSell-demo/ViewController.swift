@@ -19,12 +19,15 @@ class ViewController: UIViewController, UISearchControllerDelegate, UISearchResu
     
     var headerDataSource : GeneralDataSource?
     
+    
     let coverImages = [UIImage(named:"Shopping1"), UIImage(named:"Shopping2"), UIImage(named:"Shopping3"), UIImage(named:"Shopping1"), UIImage(named:"Shopping2"), UIImage(named:"Shopping3"), UIImage(named:"Shopping1"), UIImage(named:"Shopping2"), UIImage(named:"Shopping3"), UIImage(named:"Shopping1"), UIImage(named:"Shopping2"), UIImage(named:"Shopping3"), UIImage(named:"Shopping1"), UIImage(named:"Shopping2"), UIImage(named:"Shopping3")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.automaticallyAdjustsScrollViewInsets = false
+        
+        self.navigationController?.navigationBar.barStyle = .Black
         
         self.searchController = UISearchController(searchResultsController:  nil)
         
@@ -48,9 +51,21 @@ class ViewController: UIViewController, UISearchControllerDelegate, UISearchResu
         self.headerDataSource = HeaderTableDataSourceDelegate()
     }
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+    }
+    
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
+    
     func setLeftButton() {
         let leftButton = UIButton(frame: CGRectMake(0, 0, 30, 30))
-        leftButton.setBackgroundImage(UIImage(named: "key"), forState: .Normal)
+        leftButton.setBackgroundImage(UIImage(named: "key")?.imageWithColor(UIColor.whiteColor()), forState: .Normal)
         leftButton.adjustsImageWhenHighlighted = false
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(customView: leftButton)
     }
@@ -85,17 +100,28 @@ class ViewController: UIViewController, UISearchControllerDelegate, UISearchResu
         let layout = collectionView.collectionViewLayout as! UICollectionViewFlowLayout
         layout.itemSize = CGSize(width: UIScreen.mainScreen().bounds.width, height: 220)
         
+        let headerDataSource = self.headerDataSource as! HeaderTableDataSourceDelegate
+        headerDataSource.collectionView = collectionView
+        
+        
         collectionView.dataSource = self.headerDataSource
         collectionView.delegate = self.headerDataSource
         collectionView.reloadData()
+        
+        headerDataSource.setup()
+        
+        if let pageControl = header.viewWithTag(2) as? UIPageControl {
+            headerDataSource.pageControl = pageControl
+            
+            pageControl.numberOfPages = headerDataSource.headerImages.count
+            pageControl.addTarget(self.headerDataSource, action: #selector(HeaderTableDataSourceDelegate.pageChanged(_:)), forControlEvents: UIControlEvents.ValueChanged)
+        }
         
         
         return header
     }
     
-    func collectionView(collectionView:
-        UICollectionView, layout collectionViewLayout:
-        UICollectionViewLayout, referenceSizeForHeaderInSection
+    func collectionView(collectionView:UICollectionView, layout collectionViewLayout:UICollectionViewLayout, referenceSizeForHeaderInSection
         section: Int) -> CGSize {
         
         return CGSize(width: UIScreen.mainScreen().bounds.width, height: 220)
@@ -121,6 +147,8 @@ class ViewController: UIViewController, UISearchControllerDelegate, UISearchResu
         
         return cell
     }
+    
+
 }
 
 protocol GeneralDataSource : UICollectionViewDelegate, UICollectionViewDataSource {
@@ -131,6 +159,24 @@ class HeaderTableDataSourceDelegate: NSObject, GeneralDataSource {
     let headerImages = [UIImage(named:"Shopping1"), UIImage(named:"Shopping2"), UIImage(named:"Shopping3")]
     
     private let reuseIdentifier = "HeaderImageCollectionCell"
+    
+    var collectionView : UICollectionView?
+    var pageControl : UIPageControl?
+    
+    var timer : NSTimer?
+    
+    /**
+        Setup before using this datasource.
+     */
+    func setup() {
+        if timer != nil {
+            timer?.invalidate()
+            timer = nil
+        }
+        timer = NSTimer.scheduledTimerWithTimeInterval(5, target: self, selector: #selector(HeaderTableDataSourceDelegate.counterTimer(_:)), userInfo: nil, repeats: true)
+    }
+    
+    // MARK: - UICollectionViewDataSource
     
     func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
@@ -152,6 +198,41 @@ class HeaderTableDataSourceDelegate: NSObject, GeneralDataSource {
         }
         
         return cell
+    }
+    
+    func scrollViewWillBeginDecelerating(scrollView: UIScrollView) {
+        let pageNum = round(scrollView.contentOffset.x / scrollView.frame.size.width)
+        self.pageControl!.currentPage = Int(pageNum)
+    }
+    
+    // MARK: - Private
+    
+    /**
+     We be called when user select dot form page control.
+    
+     - Parameters
+        - sender: Could be any
+     */
+    func pageChanged(sender:AnyObject) {
+        let pageControl = sender as? UIPageControl
+        let x = CGFloat(pageControl!.currentPage) * self.collectionView!.frame.size.width
+        self.collectionView!.setContentOffset(CGPointMake(x, 0), animated: true)
+
+    }
+    
+    /**
+     A counter timer for automatic scroll our header collection view.
+     
+     - Parameters
+        - sender: The trigger object, could be any.
+     */
+    func counterTimer(sender:AnyObject) {
+        let nextIndex = self.pageControl!.currentPage + 1 < self.headerImages.count ? self.pageControl!.currentPage + 1 : 0
+        
+        self.pageControl!.currentPage = nextIndex
+        
+        let x = CGFloat(nextIndex) * self.collectionView!.frame.size.width
+        self.collectionView!.setContentOffset(CGPointMake(x, 0), animated: true)
     }
     
 }

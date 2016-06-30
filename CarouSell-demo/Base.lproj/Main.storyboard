@@ -41,13 +41,13 @@
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="79p-GK-7TJ">
                                                     <rect key="frame" x="8" y="137" width="45" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nzw-VE-OoN">
                                                     <rect key="frame" x="8" y="163" width="39" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -91,7 +91,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="344" height="175"/>
                                                             </imageView>
                                                             <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WPj-Gr-saP">
-                                                                <rect key="frame" x="99" y="129" width="146" height="38"/>
+                                                                <rect key="frame" x="99" y="105" width="146" height="38"/>
                                                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <inset key="contentEdgeInsets" minX="50" minY="10" maxX="50" maxY="10"/>
                                                                 <state key="normal" title="Button">
@@ -106,17 +106,22 @@
                                                         <constraint firstItem="qk3-OF-gpf" firstAttribute="leading" secondItem="Jbe-tE-YgO" secondAttribute="leading" id="71j-G5-htc"/>
                                                         <constraint firstItem="WPj-Gr-saP" firstAttribute="centerX" secondItem="qk3-OF-gpf" secondAttribute="centerX" id="R8M-Es-LL9"/>
                                                         <constraint firstItem="qk3-OF-gpf" firstAttribute="top" secondItem="Jbe-tE-YgO" secondAttribute="top" id="g3h-OY-tZ2"/>
-                                                        <constraint firstAttribute="bottom" secondItem="WPj-Gr-saP" secondAttribute="bottom" constant="8" id="m3n-uw-4A9"/>
+                                                        <constraint firstAttribute="bottom" secondItem="WPj-Gr-saP" secondAttribute="bottom" constant="32" id="m3n-uw-4A9"/>
                                                         <constraint firstAttribute="bottom" secondItem="qk3-OF-gpf" secondAttribute="bottom" id="qXu-Li-ez5"/>
                                                     </constraints>
                                                 </collectionViewCell>
                                             </cells>
                                         </collectionView>
+                                        <pageControl opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="UEB-xB-YCK">
+                                            <rect key="frame" x="281" y="173" width="39" height="37"/>
+                                        </pageControl>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstItem="cfN-Jx-WtJ" firstAttribute="leading" secondItem="a6r-1h-DDi" secondAttribute="leading" id="8kv-dR-j3V"/>
+                                        <constraint firstItem="UEB-xB-YCK" firstAttribute="centerX" secondItem="a6r-1h-DDi" secondAttribute="centerX" id="F7q-aj-ZYd"/>
                                         <constraint firstAttribute="bottom" secondItem="cfN-Jx-WtJ" secondAttribute="bottom" id="J0B-I9-bex"/>
+                                        <constraint firstAttribute="bottom" secondItem="UEB-xB-YCK" secondAttribute="bottom" id="XW0-WM-Mpc"/>
                                         <constraint firstItem="cfN-Jx-WtJ" firstAttribute="top" secondItem="a6r-1h-DDi" secondAttribute="top" id="oCi-xb-dTp"/>
                                         <constraint firstAttribute="trailing" secondItem="cfN-Jx-WtJ" secondAttribute="trailing" id="yY6-rX-AU4"/>
                                     </constraints>
@@ -139,6 +144,7 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="SJk-wU-yEg"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="save" id="DN0-Xz-l9t"/>
                     </navigationItem>
+                    <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
                         <outlet property="contentCollectionView" destination="chn-zh-AmU" id="n5w-jx-lbb"/>
                         <outlet property="contentLayout" destination="hum-of-TWP" id="fUo-lQ-tv3"/>
