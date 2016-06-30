@@ -18,7 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         // Setup Facebook token change notification.
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(AppDelegate.fbTokenChangeNoti(_:)), name: FBSDKAccessTokenDidChangeNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(fbTokenChangeNoti(_:)), name: FBSDKAccessTokenDidChangeNotification, object: nil)
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(requestUserProfileImage(_:)), name: FBSDKProfileDidChangeNotification, object: nil)
+        
+        FBSDKProfile.enableUpdatesOnAccessTokenChange(true)
 
         // Setup navigation bar apperance.
         UINavigationBar.appearance().barTintColor = UIColor.redColor()
@@ -50,17 +54,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    func requestUserProfileImage(noti:NSNotification) {
+        if FBSDKProfile.currentProfile() != nil {
+            let url = FBSDKProfile.currentProfile().imageURLForPictureMode(FBSDKProfilePictureMode.Square, size: CGSize(width: 240, height: 240))
+            
+            if url != nil {
+                let req = NSURLRequest(URL: url)
+                NSURLConnection.sendAsynchronousRequest(req, queue: NSOperationQueue.mainQueue()) { (response:NSURLResponse?, data:NSData?, error:NSError?) in
+                    if data != nil {
+                        let image = UIImage(data: data!)
+                    }
+                }
+            }
+        }
+        
+        
+
+    }
+    
     func fbTokenChangeNoti(noti:NSNotification) {
         // If we get access token, then open main storyboard.
         if FBSDKAccessToken.currentAccessToken() != nil  {
             self.toggleRootView("Main", viewControllerIdentifier:
             "MainNavigationController")
+            
+            self.requestFBMeProfile()
+            
         } else if FBSDKAccessToken.currentAccessToken() == nil {
             // If we couldn't get access token, then we use registration
             self.toggleRootView("Registration", viewControllerIdentifier: "RegistrationViewController")
         }
-        
-        self.requestFBMeProfile()
     }
     
     func toggleRootView(storyboardName: String, viewControllerIdentifier: String) {

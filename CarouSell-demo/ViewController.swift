@@ -76,6 +76,7 @@ class ViewController: UIViewController, UISearchControllerDelegate, UISearchResu
     // MARK: - UICollectionViewDataSource
     
     func collectionView(collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, atIndexPath indexPath: NSIndexPath) -> UICollectionReusableView {
+        
         let header = collectionView.dequeueReusableSupplementaryViewOfKind(UICollectionElementKindSectionHeader, withReuseIdentifier: "Header", forIndexPath: indexPath)
         header.backgroundColor = UIColor.whiteColor()
         
@@ -112,9 +113,11 @@ class ViewController: UIViewController, UISearchControllerDelegate, UISearchResu
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
         
         if let imageView = cell.viewWithTag(1) as? UIImageView {
-            imageView.image = coverImages[indexPath.row]
+            imageView.image = coverImages[indexPath.item]
         }
-
+        
+        cell.contentView.layer.borderColor = UIColor.lightGrayColor().CGColor
+        cell.contentView.layer.borderWidth = 1
         
         return cell
     }
@@ -141,14 +144,12 @@ class HeaderTableDataSourceDelegate: NSObject, GeneralDataSource {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
         
         if let imageView = cell.viewWithTag(1) as? UIImageView {
-            imageView.image = headerImages[indexPath.row]
+            imageView.image = headerImages[indexPath.item]
         }
         if let actionButton = cell.viewWithTag(2) as? UIButton {
             actionButton.setTitle("Browse more", forState: .Normal)
             actionButton.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.5)
         }
-        
-        cell.contentView.layer.borderColor = UIColor.lightGrayColor().CGColor
         
         return cell
     }
