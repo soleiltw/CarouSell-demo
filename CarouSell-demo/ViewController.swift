@@ -84,6 +84,14 @@ class ViewController: UIViewController, UISearchControllerDelegate, UISearchResu
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ShowCategoryDetail" {
+            
+        }
+    }
+    
+    // MARK: - UISearchControllerDelegate
 
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         
@@ -174,9 +182,6 @@ class ViewController: UIViewController, UISearchControllerDelegate, UISearchResu
         if let textLabel = cell.viewWithTag(3) as? UILabel {
             textLabel.text = dataObject[CategoryImageConstants.title]
         }
-        
-        cell.contentView.layer.borderColor = UIColor.lightGrayColor().CGColor
-        cell.contentView.layer.borderWidth = 1
         
         return cell
     }

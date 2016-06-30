@@ -7,8 +7,11 @@ target 'CarouSell-demo' do
 
 pod 'FBSDKCoreKit'
 pod 'FBSDKLoginKit'
+pod 'FBSDKShareKit'
+pod 'FBSDKMessengerShareKit'
 pod 'PKHUD'
 pod 'SDWebImage'
+pod 'GestureRecognizerClosures'
 
 end
 

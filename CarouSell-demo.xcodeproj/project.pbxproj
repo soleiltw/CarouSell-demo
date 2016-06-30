@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1CB1281A1D24FFB1001BBEBB /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB128191D24FFB1001BBEBB /* UIImage+Extension.swift */; };
+		1CB1281D1D251B1C001BBEBB /* CategorySellsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB1281C1D251B1C001BBEBB /* CategorySellsViewController.swift */; };
+		1CB1281F1D2521AA001BBEBB /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CB1281E1D2521AA001BBEBB /* Social.framework */; };
 		D36849241CBCDC0900BCB49C /* RegistrationWithEmailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36849231CBCDC0900BCB49C /* RegistrationWithEmailTableViewController.swift */; };
 		D3C591C21CB5FD25002D8FF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C591C11CB5FD25002D8FF5 /* AppDelegate.swift */; };
 		D3C591C41CB5FD25002D8FF5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C591C31CB5FD25002D8FF5 /* ViewController.swift */; };
@@ -26,6 +28,8 @@
 
 /* Begin PBXFileReference section */
 		1CB128191D24FFB1001BBEBB /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		1CB1281C1D251B1C001BBEBB /* CategorySellsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategorySellsViewController.swift; sourceTree = "<group>"; };
+		1CB1281E1D2521AA001BBEBB /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		3F0925A711357D52535B3884 /* Pods-CarouSell-demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarouSell-demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-CarouSell-demo/Pods-CarouSell-demo.release.xcconfig"; sourceTree = "<group>"; };
 		ADB3369E2DFFC2091985D883 /* Pods_CarouSell_demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarouSell_demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C00181D7F808B7DFEAC451BD /* Pods-CarouSell-demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarouSell-demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarouSell-demo/Pods-CarouSell-demo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -51,6 +55,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1CB1281F1D2521AA001BBEBB /* Social.framework in Frameworks */,
 				FA906C5B53CCD3EFF41307D2 /* Pods_CarouSell_demo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -62,6 +67,7 @@
 			isa = PBXGroup;
 			children = (
 				D3C591C31CB5FD25002D8FF5 /* ViewController.swift */,
+				1CB1281C1D251B1C001BBEBB /* CategorySellsViewController.swift */,
 				D3C591D51CB605B5002D8FF5 /* RegistrationViewController.swift */,
 				D36849231CBCDC0900BCB49C /* RegistrationWithEmailTableViewController.swift */,
 			);
@@ -134,6 +140,7 @@
 		EA5CCF1E93EB84A274C5FBEF /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1CB1281E1D2521AA001BBEBB /* Social.framework */,
 				ADB3369E2DFFC2091985D883 /* Pods_CarouSell_demo.framework */,
 			);
 			name = Frameworks;
@@ -265,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3C591D61CB605B5002D8FF5 /* RegistrationViewController.swift in Sources */,
+				1CB1281D1D251B1C001BBEBB /* CategorySellsViewController.swift in Sources */,
 				D3C591C41CB5FD25002D8FF5 /* ViewController.swift in Sources */,
 				D3C591DC1CB616CF002D8FF5 /* Constant.swift in Sources */,
 				1CB1281A1D24FFB1001BBEBB /* UIImage+Extension.swift in Sources */,
