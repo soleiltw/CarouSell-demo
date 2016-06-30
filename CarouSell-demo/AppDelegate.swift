@@ -8,6 +8,7 @@
 
 import UIKit
 import FBSDKCoreKit
+import SDWebImage
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -33,6 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if NSUserDefaults.standardUserDefaults().valueForKey("email") != nil {
             self.toggleRootView("Main", viewControllerIdentifier: "MainNavigationController")
         }
+        
+        
         
         // Return this if intergrate with facebook
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)

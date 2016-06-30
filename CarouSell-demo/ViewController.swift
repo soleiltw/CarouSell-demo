@@ -7,12 +7,13 @@
 //
 
 import UIKit
+import SDWebImage
 
 class ViewController: UIViewController, UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
 
     @IBOutlet weak var contentCollectionView: UICollectionView!
     
-    private let reuseIdentifier = "ContentImageCollectionCell"
+    private let reuseIdentifier = "ImageProgressCollectionCell"
     @IBOutlet weak var contentLayout: UICollectionViewFlowLayout!
     
     var searchController : UISearchController!
@@ -20,13 +21,22 @@ class ViewController: UIViewController, UISearchControllerDelegate, UISearchResu
     var headerDataSource : GeneralDataSource?
     
     
-    let coverImages = [UIImage(named:"Shopping1"), UIImage(named:"Shopping2"), UIImage(named:"Shopping3"), UIImage(named:"Shopping1"), UIImage(named:"Shopping2"), UIImage(named:"Shopping3"), UIImage(named:"Shopping1"), UIImage(named:"Shopping2"), UIImage(named:"Shopping3"), UIImage(named:"Shopping1"), UIImage(named:"Shopping2"), UIImage(named:"Shopping3"), UIImage(named:"Shopping1"), UIImage(named:"Shopping2"), UIImage(named:"Shopping3")]
+    let coverImages = [
+        [CategoryImageConstants.title:"Title 1",CategoryImageConstants.imageURL:"http://i.istockimg.com/image-zoom/68380373/3/380/253/stock-photo-68380373-mannequins-in-fashion-shop-display-window.jpg"],
+        [CategoryImageConstants.title:"Title 2",CategoryImageConstants.imageURL:"http://i.istockimg.com/image-zoom/24357274/3/380/254/stock-photo-24357274-clothing-store-window.jpg"],
+        [CategoryImageConstants.title:"Title 3",CategoryImageConstants.imageURL:"http://i.istockimg.com/image-zoom/61355814/3/380/253/stock-photo-61355814-modern-shopping-mall-with-outdoor-seating.jpg"],
+        [CategoryImageConstants.title:"Title 4",CategoryImageConstants.imageURL:"http://i.istockimg.com/image-zoom/85516551/3/380/254/stock-photo-85516551-couple-looking-at-their-shopping-bags.jpg"],
+        [CategoryImageConstants.title:"Title 5",CategoryImageConstants.imageURL:"http://i.istockimg.com/image-zoom/86475293/3/380/253/stock-photo-86475293-haneda-airport.jpg"]
+        ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "CarouSell"
+        
         self.automaticallyAdjustsScrollViewInsets = false
         
+        // preferredStatusBarStyle isn't called http://stackoverflow.com/questions/19022210/preferredstatusbarstyle-isnt-called/19513714#19513714
         self.navigationController?.navigationBar.barStyle = .Black
         
         self.searchController = UISearchController(searchResultsController:  nil)
@@ -138,8 +148,31 @@ class ViewController: UIViewController, UISearchControllerDelegate, UISearchResu
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
         
+        let dataObject : Dictionary<String, String> = self.coverImages[indexPath.item]
+        
         if let imageView = cell.viewWithTag(1) as? UIImageView {
-            imageView.image = coverImages[indexPath.item]
+            if let progressView = cell.viewWithTag(2) as? UIProgressView {
+            
+                progressView.hidden = false
+                
+                let manager:SDWebImageManager = SDWebImageManager.sharedManager()
+                manager.downloadWithURL(NSURL(string:dataObject[CategoryImageConstants.imageURL]!), options: SDWebImageOptions.RefreshCached, progress: { (receivedSize:Int, expectedSize:Int) in
+                    
+                    progressView.setProgress(Float(receivedSize) / Float(expectedSize), animated: true)
+                    
+                    }, completed: { (image:UIImage!, error:NSError!, cacheType:SDImageCacheType, finished:Bool) in
+                        
+                        progressView.hidden = true
+                        
+                        if image != nil {
+                            imageView.image = image
+                        }
+                })
+                
+            }
+        }
+        if let textLabel = cell.viewWithTag(3) as? UILabel {
+            textLabel.text = dataObject[CategoryImageConstants.title]
         }
         
         cell.contentView.layer.borderColor = UIColor.lightGrayColor().CGColor

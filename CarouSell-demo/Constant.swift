@@ -13,3 +13,8 @@ struct Constants {
     static let title = "title"
     static let description = "description"
 }
+
+struct CategoryImageConstants {
+    static let imageURL = "imageURL"
+    static let title = "title"
+}
