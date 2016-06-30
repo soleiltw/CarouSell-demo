@@ -34,6 +34,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
     
+    func requestFBMeProfile() {
+        // We still need more information
+        let request = FBSDKGraphRequest(graphPath: "me", parameters:  ["fields":
+            "name,id,picture,gender,birthday,email"])
+        request.startWithCompletionHandler { (reqeustConnection:FBSDKGraphRequestConnection!, result:AnyObject!, error:NSError!) in
+            if result != nil {
+                print("Facebook Result: \(result)")
+                
+                if let resultDictionary : Dictionary<String, AnyObject> = result as? Dictionary<String, AnyObject> {
+                    print("gender: \(resultDictionary["gender"] as! String)")
+                    print("name: \(resultDictionary["name"] as! String)")
+                }
+            }
+        }
+    }
+    
     func fbTokenChangeNoti(noti:NSNotification) {
         // If we get access token, then open main storyboard.
         if FBSDKAccessToken.currentAccessToken() != nil  {
@@ -43,6 +59,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             // If we couldn't get access token, then we use registration
             self.toggleRootView("Registration", viewControllerIdentifier: "RegistrationViewController")
         }
+        
+        self.requestFBMeProfile()
     }
     
     func toggleRootView(storyboardName: String, viewControllerIdentifier: String) {

@@ -118,6 +118,7 @@
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <connections>
+                        <outlet property="facebookLoginButton" destination="nkS-wQ-uTq" id="AG5-uS-pkP"/>
                         <outlet property="layout" destination="at6-le-LLq" id="Krj-Ai-hYN"/>
                         <outlet property="loginWithEmailButton" destination="KXK-rj-ocm" id="TOw-9D-ROo"/>
                         <outlet property="pageControl" destination="9YD-go-hmr" id="HdW-ra-ik3"/>

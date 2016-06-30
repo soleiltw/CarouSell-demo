@@ -7,16 +7,20 @@
 //
 
 import UIKit
+import FBSDKLoginKit
 
-class RegistrationViewController: UIViewController, UIScrollViewDelegate {
+class RegistrationViewController: UIViewController, UIScrollViewDelegate, FBSDKLoginButtonDelegate {
     
     private let pageCellReuseIdentifier = "pageCellReuseIdentifier"
     
     @IBOutlet weak var tutorialCollectionView: UICollectionView!
     @IBOutlet weak var layout: UICollectionViewFlowLayout!
     @IBOutlet weak var pageControl: UIPageControl!
-    
     @IBOutlet weak var loginWithEmailButton: UIButton!
+    
+    @IBOutlet weak var facebookLoginButton: FBSDKLoginButton!
+    
+    
     let pages = [
         [Constants.image: "coffee", Constants.title: "drink a coffee", Constants.description: "i like coffee "],
         
@@ -35,6 +39,8 @@ class RegistrationViewController: UIViewController, UIScrollViewDelegate {
         self.pageControl.numberOfPages = self.pages.count
         
         self.setUpLoginWithEmailButton()
+        
+        self.facebookLoginButton.delegate = self
     }
     
     private func setUpLoginWithEmailButton() {
@@ -89,5 +95,16 @@ class RegistrationViewController: UIViewController, UIScrollViewDelegate {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    // MARK: - FBSDKLoginButtonDelegate
+    
+    func loginButton(loginButton: FBSDKLoginButton!, didCompleteWithResult result: FBSDKLoginManagerLoginResult!, error: NSError!) {
+        
+        // User has been login
+    }
+    
+    func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
+        
+    }
 
 }
