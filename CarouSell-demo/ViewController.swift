@@ -8,9 +8,10 @@
 
 import UIKit
 import SDWebImage
+import GestureRecognizerClosures
 
 class ViewController: UIViewController, UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate, UICollectionViewDataSource, UICollectionViewDelegate {
-
+    
     @IBOutlet weak var contentCollectionView: UICollectionView!
     
     private let reuseIdentifier = "ImageProgressCollectionCell"
@@ -22,12 +23,13 @@ class ViewController: UIViewController, UISearchControllerDelegate, UISearchResu
     
     
     let coverImages = [
-        [CategoryImageConstants.title:"Title 1",CategoryImageConstants.imageURL:"http://i.istockimg.com/image-zoom/68380373/3/380/253/stock-photo-68380373-mannequins-in-fashion-shop-display-window.jpg"],
-        [CategoryImageConstants.title:"Title 2",CategoryImageConstants.imageURL:"http://i.istockimg.com/image-zoom/24357274/3/380/254/stock-photo-24357274-clothing-store-window.jpg"],
-        [CategoryImageConstants.title:"Title 3",CategoryImageConstants.imageURL:"http://i.istockimg.com/image-zoom/61355814/3/380/253/stock-photo-61355814-modern-shopping-mall-with-outdoor-seating.jpg"],
-        [CategoryImageConstants.title:"Title 4",CategoryImageConstants.imageURL:"http://i.istockimg.com/image-zoom/85516551/3/380/254/stock-photo-85516551-couple-looking-at-their-shopping-bags.jpg"],
-        [CategoryImageConstants.title:"Title 5",CategoryImageConstants.imageURL:"http://i.istockimg.com/image-zoom/86475293/3/380/253/stock-photo-86475293-haneda-airport.jpg"]
-        ]
+        [CategoryImageConstants.title:"Cloth",CategoryImageConstants.imageURL:"http://i.istockimg.com/image-zoom/68380373/3/380/253/stock-photo-68380373-mannequins-in-fashion-shop-display-window.jpg"],
+        [CategoryImageConstants.title:"Men Cloth",CategoryImageConstants.imageURL:"http://i.istockimg.com/image-zoom/24357274/3/380/254/stock-photo-24357274-clothing-store-window.jpg"],
+        [CategoryImageConstants.title:"Mall",CategoryImageConstants.imageURL:"http://i.istockimg.com/image-zoom/61355814/3/380/253/stock-photo-61355814-modern-shopping-mall-with-outdoor-seating.jpg"],
+        [CategoryImageConstants.title:"Pay",CategoryImageConstants.imageURL:"http://i.istockimg.com/image-zoom/85516551/3/380/254/stock-photo-85516551-couple-looking-at-their-shopping-bags.jpg"],
+        [CategoryImageConstants.title:"Whole View",CategoryImageConstants.imageURL:"http://i.istockimg.com/image-zoom/86475293/3/380/253/stock-photo-86475293-haneda-airport.jpg"],
+        [CategoryImageConstants.title:"Discount", CategoryImageConstants.imageURL:"http://i.istockimg.com/image-zoom/84319517/3/380/254/stock-photo-84319517-sale.jpg"]
+    ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,7 +55,7 @@ class ViewController: UIViewController, UISearchControllerDelegate, UISearchResu
         self.definesPresentationContext = true
         
         self.setLeftButton()
-
+        
         let spacingWidth = Float(10)
         let width = (Float(UIScreen.mainScreen().bounds.width) - spacingWidth * Float(2 + 1)) / 2
         self.contentLayout.itemSize = CGSize(width: CGFloat(width), height: CGFloat(width))
@@ -92,7 +94,7 @@ class ViewController: UIViewController, UISearchControllerDelegate, UISearchResu
     }
     
     // MARK: - UISearchControllerDelegate
-
+    
     func updateSearchResultsForSearchController(searchController: UISearchController) {
         
     }
@@ -154,39 +156,34 @@ class ViewController: UIViewController, UISearchControllerDelegate, UISearchResu
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
+        
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! ImageProgressTitleCell
         
         let dataObject : Dictionary<String, String> = self.coverImages[indexPath.item]
         
-        if let imageView = cell.viewWithTag(1) as? UIImageView {
-            if let progressView = cell.viewWithTag(2) as? UIProgressView {
+        // Image download
+        cell.progressView.hidden = false
+        
+        let manager:SDWebImageManager = SDWebImageManager.sharedManager()
+        manager.downloadImageWithURL(NSURL(string:dataObject[CategoryImageConstants.imageURL]!), options: SDWebImageOptions.RefreshCached, progress: { (receivedSize:Int, expectedSize:Int) in
             
-                progressView.hidden = false
+            cell.progressView.setProgress(Float(receivedSize) / Float(expectedSize), animated: true)
+            
+            }, completed: { (image:UIImage!, error:NSError!, cacheType:SDImageCacheType, finished:Bool, url: NSURL!) in
                 
-                let manager:SDWebImageManager = SDWebImageManager.sharedManager()
-                manager.downloadWithURL(NSURL(string:dataObject[CategoryImageConstants.imageURL]!), options: SDWebImageOptions.RefreshCached, progress: { (receivedSize:Int, expectedSize:Int) in
-                    
-                    progressView.setProgress(Float(receivedSize) / Float(expectedSize), animated: true)
-                    
-                    }, completed: { (image:UIImage!, error:NSError!, cacheType:SDImageCacheType, finished:Bool) in
-                        
-                        progressView.hidden = true
-                        
-                        if image != nil {
-                            imageView.image = image
-                        }
-                })
+                cell.progressView.hidden = true
                 
-            }
-        }
-        if let textLabel = cell.viewWithTag(3) as? UILabel {
-            textLabel.text = dataObject[CategoryImageConstants.title]
-        }
+                if image != nil {
+                    cell.imageView.image = image
+                }
+        })
+        
+        cell.titleLabel.text = dataObject[CategoryImageConstants.title]
         
         return cell
     }
     
-
+    
 }
 
 protocol GeneralDataSource : UICollectionViewDelegate, UICollectionViewDataSource {
@@ -204,7 +201,7 @@ class HeaderTableDataSourceDelegate: NSObject, GeneralDataSource {
     var timer : NSTimer?
     
     /**
-        Setup before using this datasource.
+     Setup before using this datasource.
      */
     func setup() {
         if timer != nil {
@@ -225,14 +222,23 @@ class HeaderTableDataSourceDelegate: NSObject, GeneralDataSource {
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath)
         
-        if let imageView = cell.viewWithTag(1) as? UIImageView {
-            imageView.image = headerImages[indexPath.item]
-        }
-        if let actionButton = cell.viewWithTag(2) as? UIButton {
-            actionButton.setTitle("Browse more", forState: .Normal)
-            actionButton.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.5)
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier(reuseIdentifier, forIndexPath: indexPath) as! HeaderImageButtonCell
+        
+        let currentImage = headerImages[indexPath.item]
+        
+        cell.imageView.image = currentImage
+        cell.actionButton.setTitle("Browse more", forState: .Normal)
+        cell.actionButton.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.5)
+        
+        // Method 1. Add target action
+        //        cell.actionButton.addTarget(self, action: #selector(handledActionButton(_:)), forControlEvents: UIControlEvents.TouchUpInside)
+        // Adding addtional potision value
+        cell.actionButton.tag = indexPath.item
+        
+        // Method 2. Use GestureRecognizerClosures
+        cell.actionButton.onTap { (tapGestureRecognizer) in
+            print("Pressed GestureRecognizerClosures at \(indexPath.item as Int)!")
         }
         
         return cell
@@ -243,26 +249,31 @@ class HeaderTableDataSourceDelegate: NSObject, GeneralDataSource {
         self.pageControl!.currentPage = Int(pageNum)
     }
     
+    func handledActionButton(sender:AnyObject?) {
+        let currentButton = sender as! UIButton
+        print("Pressed at \(currentButton.tag as Int)!")
+    }
+    
     // MARK: - Private
     
     /**
      We be called when user select dot form page control.
-    
+     
      - Parameters
-        - sender: Could be any
+     - sender: Could be any
      */
     func pageChanged(sender:AnyObject) {
         let pageControl = sender as? UIPageControl
         let x = CGFloat(pageControl!.currentPage) * self.collectionView!.frame.size.width
         self.collectionView!.setContentOffset(CGPointMake(x, 0), animated: true)
-
+        
     }
     
     /**
      A counter timer for automatic scroll our header collection view.
      
      - Parameters
-        - sender: The trigger object, could be any.
+     - sender: The trigger object, could be any.
      */
     func counterTimer(sender:AnyObject) {
         let nextIndex = self.pageControl!.currentPage + 1 < self.headerImages.count ? self.pageControl!.currentPage + 1 : 0
