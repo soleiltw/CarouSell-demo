@@ -238,7 +238,7 @@ class HeaderTableDataSourceDelegate: NSObject, GeneralDataSource {
         return cell
     }
     
-    func scrollViewWillBeginDecelerating(scrollView: UIScrollView) {
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
         let pageNum = round(scrollView.contentOffset.x / scrollView.frame.size.width)
         self.pageControl!.currentPage = Int(pageNum)
     }
