@@ -1,10 +1,10 @@
 PODS:
-  - Bolts (1.7.0):
-    - Bolts/AppLinks (= 1.7.0)
-    - Bolts/Tasks (= 1.7.0)
-  - Bolts/AppLinks (1.7.0):
+  - Bolts (1.8.1):
+    - Bolts/AppLinks (= 1.8.1)
+    - Bolts/Tasks (= 1.8.1)
+  - Bolts/AppLinks (1.8.1):
     - Bolts/Tasks
-  - Bolts/Tasks (1.7.0)
+  - Bolts/Tasks (1.8.1)
   - FBSDKCoreKit (4.13.1):
     - Bolts (~> 1.7)
   - FBSDKLoginKit (4.13.1):
@@ -13,7 +13,7 @@ PODS:
   - FBSDKShareKit (4.13.1):
     - FBSDKCoreKit
   - GestureRecognizerClosures (2.3.0)
-  - PKHUD (3.1.0)
+  - PKHUD (3.2.1)
   - SDWebImage (3.8.1):
     - SDWebImage/Core (= 3.8.1)
   - SDWebImage/Core (3.8.1)
@@ -28,13 +28,15 @@ DEPENDENCIES:
   - SDWebImage
 
 SPEC CHECKSUMS:
-  Bolts: a0058fa3b331c5a1e4402d534f2dae36dbff31e4
+  Bolts: 89c0c6dd1b9c975a3452a62d57a6be6739e5f433
   FBSDKCoreKit: 2807fe0da2ddb49a1469da6d6ff597f99912980f
   FBSDKLoginKit: 6d350cb6a22d6956e9d078885de6ee8a0ebc51b4
   FBSDKMessengerShareKit: 41c0b1a667d685c9433f993eb9611b3d5074e1cb
   FBSDKShareKit: c9438df7573b33780ac8c3451201c5ebb260ffca
   GestureRecognizerClosures: 00ee582c0f385b74b2381bd5e2b3241f1f71cf9f
-  PKHUD: 4167eccdb1b3a892fd80ce2b51cb6ba412a889ab
+  PKHUD: 001c11518f125a273ddf026bcc64918423744ea2
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: 93c788471dbbbf3e78d6163b897055927fe9fb43
+
+COCOAPODS: 1.0.1

@@ -67,6 +67,38 @@ class CategorySellsViewController: UICollectionViewController {
             button.onTap({ (tapGestureRecognizer) in
                 let actionSheet = UIAlertController(title: "Social Share", message: "Share with your friends", preferredStyle: .ActionSheet)
                 
+                // Add make phone call
+                
+                actionSheet.addAction(UIAlertAction(title: "Make phone call", style: .Default, handler: { (alertAction) in
+                    
+                    let phoneNumber = "1999"
+                    
+                    if let phoneCallURL:NSURL = NSURL(string:"tel://\(phoneNumber)") {
+                        let application:UIApplication = UIApplication.sharedApplication()
+                        if (application.canOpenURL(phoneCallURL)) {
+                            application.openURL(phoneCallURL);
+                        } else {
+                            self.showAlertMessage("We can't make a phone call right now. Please check the device or contact...")
+                        }
+                    }
+                }))
+                
+                // Add activity controller
+                
+                actionSheet.addAction(UIAlertAction(title: "Share activity items", style: .Default, handler: { (alertAction) in
+                    
+                    let image = dataObject
+                    let text = "On sale today, don't miss it."
+                    let url = NSURL(string: "http://yourURL.com")
+                    
+                    let shareController = UIActivityViewController(activityItems: [image!, text, url!], applicationActivities: nil)
+                    
+                    // Add this line not to show share on facebook
+                    shareController.excludedActivityTypes = [UIActivityTypePostToFacebook]
+                    
+                    self.presentViewController(shareController, animated: true, completion: nil)
+                }))
+                
                 // Twitter Share
                 actionSheet.addAction(UIAlertAction(title: "Share on Twitter (Social)", style: .Default, handler: { (alertAction) in
                     

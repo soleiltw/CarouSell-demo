@@ -12,6 +12,7 @@
 		1CB1281F1D2521AA001BBEBB /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1CB1281E1D2521AA001BBEBB /* Social.framework */; };
 		1CB128211D261641001BBEBB /* HeaderImageButtonCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB128201D261641001BBEBB /* HeaderImageButtonCell.swift */; };
 		1CB128231D261C3D001BBEBB /* ImageProgressTitleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CB128221D261C3D001BBEBB /* ImageProgressTitleCell.swift */; };
+		660932CEE1DE1BFE75F7F3E9 /* Pods_CarouSell_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6209D7F579054D92824595F9 /* Pods_CarouSell_demo.framework */; };
 		D36849241CBCDC0900BCB49C /* RegistrationWithEmailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D36849231CBCDC0900BCB49C /* RegistrationWithEmailTableViewController.swift */; };
 		D3C591C21CB5FD25002D8FF5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C591C11CB5FD25002D8FF5 /* AppDelegate.swift */; };
 		D3C591C41CB5FD25002D8FF5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C591C31CB5FD25002D8FF5 /* ViewController.swift */; };
@@ -25,7 +26,6 @@
 		D3C591DC1CB616CF002D8FF5 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3C591DB1CB616CF002D8FF5 /* Constant.swift */; };
 		D3EA51521CBDEA5400646000 /* SignInInputTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3EA51501CBDEA5400646000 /* SignInInputTableViewCell.swift */; };
 		D3EA51531CBDEA5400646000 /* SignInInputTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3EA51511CBDEA5400646000 /* SignInInputTableViewCell.xib */; };
-		FA906C5B53CCD3EFF41307D2 /* Pods_CarouSell_demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADB3369E2DFFC2091985D883 /* Pods_CarouSell_demo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,9 +34,8 @@
 		1CB1281E1D2521AA001BBEBB /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		1CB128201D261641001BBEBB /* HeaderImageButtonCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeaderImageButtonCell.swift; sourceTree = "<group>"; };
 		1CB128221D261C3D001BBEBB /* ImageProgressTitleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageProgressTitleCell.swift; sourceTree = "<group>"; };
-		3F0925A711357D52535B3884 /* Pods-CarouSell-demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarouSell-demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-CarouSell-demo/Pods-CarouSell-demo.release.xcconfig"; sourceTree = "<group>"; };
-		ADB3369E2DFFC2091985D883 /* Pods_CarouSell_demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarouSell_demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		C00181D7F808B7DFEAC451BD /* Pods-CarouSell-demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarouSell-demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarouSell-demo/Pods-CarouSell-demo.debug.xcconfig"; sourceTree = "<group>"; };
+		6209D7F579054D92824595F9 /* Pods_CarouSell_demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CarouSell_demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		66489B48CEF5D2BF5C4C1BC7 /* Pods-CarouSell-demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarouSell-demo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CarouSell-demo/Pods-CarouSell-demo.debug.xcconfig"; sourceTree = "<group>"; };
 		D36849231CBCDC0900BCB49C /* RegistrationWithEmailTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegistrationWithEmailTableViewController.swift; sourceTree = "<group>"; };
 		D3C591BE1CB5FD25002D8FF5 /* CarouSell-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "CarouSell-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3C591C11CB5FD25002D8FF5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -52,6 +51,7 @@
 		D3C591DB1CB616CF002D8FF5 /* Constant.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
 		D3EA51501CBDEA5400646000 /* SignInInputTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInInputTableViewCell.swift; sourceTree = "<group>"; };
 		D3EA51511CBDEA5400646000 /* SignInInputTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SignInInputTableViewCell.xib; sourceTree = "<group>"; };
+		FBD8CB349E36CC48C733302B /* Pods-CarouSell-demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CarouSell-demo.release.xcconfig"; path = "Pods/Target Support Files/Pods-CarouSell-demo/Pods-CarouSell-demo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,7 +60,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1CB1281F1D2521AA001BBEBB /* Social.framework in Frameworks */,
-				FA906C5B53CCD3EFF41307D2 /* Pods_CarouSell_demo.framework in Frameworks */,
+				660932CEE1DE1BFE75F7F3E9 /* Pods_CarouSell_demo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,11 +99,11 @@
 			name = Extension;
 			sourceTree = "<group>";
 		};
-		CE8643C2687801BD40BCA313 /* Pods */ = {
+		9628DE0FA92E9ADDA82F87F7 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C00181D7F808B7DFEAC451BD /* Pods-CarouSell-demo.debug.xcconfig */,
-				3F0925A711357D52535B3884 /* Pods-CarouSell-demo.release.xcconfig */,
+				66489B48CEF5D2BF5C4C1BC7 /* Pods-CarouSell-demo.debug.xcconfig */,
+				FBD8CB349E36CC48C733302B /* Pods-CarouSell-demo.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -113,8 +113,8 @@
 			children = (
 				D3C591C01CB5FD25002D8FF5 /* CarouSell-demo */,
 				D3C591BF1CB5FD25002D8FF5 /* Products */,
-				CE8643C2687801BD40BCA313 /* Pods */,
 				EA5CCF1E93EB84A274C5FBEF /* Frameworks */,
+				9628DE0FA92E9ADDA82F87F7 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -147,7 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				1CB1281E1D2521AA001BBEBB /* Social.framework */,
-				ADB3369E2DFFC2091985D883 /* Pods_CarouSell_demo.framework */,
+				6209D7F579054D92824595F9 /* Pods_CarouSell_demo.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -159,12 +159,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D3C591D01CB5FD25002D8FF5 /* Build configuration list for PBXNativeTarget "CarouSell-demo" */;
 			buildPhases = (
-				7D7E20D54A0C7132873A198C /* Check Pods Manifest.lock */,
+				24E2A8D783014ED1BA87F53C /* [CP] Check Pods Manifest.lock */,
 				D3C591BA1CB5FD25002D8FF5 /* Sources */,
 				D3C591BB1CB5FD25002D8FF5 /* Frameworks */,
 				D3C591BC1CB5FD25002D8FF5 /* Resources */,
-				D23DC20D0DB48FF240180D0A /* Embed Pods Frameworks */,
-				26A22BC9071A231F630E2A57 /* Copy Pods Resources */,
+				5CC449478013D13220BB943F /* [CP] Embed Pods Frameworks */,
+				A5FF47644C5C3BB3B0BF8FEF /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -225,29 +225,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		26A22BC9071A231F630E2A57 /* Copy Pods Resources */ = {
+		24E2A8D783014ED1BA87F53C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CarouSell-demo/Pods-CarouSell-demo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		7D7E20D54A0C7132873A198C /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
+			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -255,19 +240,34 @@
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
-		D23DC20D0DB48FF240180D0A /* Embed Pods Frameworks */ = {
+		5CC449478013D13220BB943F /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
-			name = "Embed Pods Frameworks";
+			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CarouSell-demo/Pods-CarouSell-demo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A5FF47644C5C3BB3B0BF8FEF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CarouSell-demo/Pods-CarouSell-demo-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -402,7 +402,7 @@
 		};
 		D3C591D11CB5FD25002D8FF5 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C00181D7F808B7DFEAC451BD /* Pods-CarouSell-demo.debug.xcconfig */;
+			baseConfigurationReference = 66489B48CEF5D2BF5C4C1BC7 /* Pods-CarouSell-demo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "CarouSell-demo/Info.plist";
@@ -414,7 +414,7 @@
 		};
 		D3C591D21CB5FD25002D8FF5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3F0925A711357D52535B3884 /* Pods-CarouSell-demo.release.xcconfig */;
+			baseConfigurationReference = FBD8CB349E36CC48C733302B /* Pods-CarouSell-demo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "CarouSell-demo/Info.plist";
